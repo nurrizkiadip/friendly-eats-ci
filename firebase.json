@@ -1,12 +1,7 @@
 {
   "hosting": {
     "public": "./",
-    "ignore": [
-      "firebase.json",
-      "database-rules.json",
-      "storage.rules",
-      "functions"
-    ],
+    "ignore": ["firebase.json", "database-rules.json", "storage.rules", "functions"],
     "headers": [
       {
         "source": "**/*.@(js|html)",

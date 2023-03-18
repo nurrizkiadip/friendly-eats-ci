@@ -1,6 +1,10 @@
 language: node_js
 node_js:
-  - "7"
+  - '7'
+cache:
+  npm: true
+  directories:
+    - $HOME/.cache/firebase
 install:
   - npm install -g eslint
   - npm install

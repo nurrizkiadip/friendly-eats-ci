@@ -15,7 +15,7 @@
  */
 html,
 body {
-  font-family: "Roboto", "Helvetica", sans-serif;
+  font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0px;
   padding: 0px;
   background-color: #eee;
@@ -118,7 +118,7 @@ header {
 }
 
 .mdc-layout__header--transparent {
-  background: url("../assets/demos/transparent.jpg") center / cover;
+  background: url('../assets/demos/transparent.jpg') center / cover;
 }
 
 header .details {
@@ -198,7 +198,7 @@ header .details {
 }
 
 .message-container .pic {
-  background-image: url("/images/profile_placeholder.png");
+  background-image: url('/images/profile_placeholder.png');
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;

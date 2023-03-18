@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { View } from "./FriendlyEats.View";
-import { Data } from "./FriendlyEats.Data";
-import { Auth } from "./FriendlyEats.Auth";
-import { Mock } from "./FriendlyEats.Mock";
+
+import { View } from './FriendlyEats.View';
+import { Data } from './FriendlyEats.Data';
+import { Auth } from './FriendlyEats.Auth';
+import { Mock } from './FriendlyEats.Mock';
 
 /**
  * Initializes the FriendlyEats app.
@@ -26,10 +27,10 @@ export class FriendlyEats {
     this.firebaseApp = firebaseApp;
     this.auth = new Auth(firebaseApp);
     this.filters = {
-      city: "",
-      price: "",
-      category: "",
-      sort: "Rating"
+      city: '',
+      price: '',
+      category: '',
+      sort: 'Rating',
     };
 
     this.router = new Navigo();
@@ -51,13 +52,13 @@ export class FriendlyEats {
           auth: this.auth,
           router: this.router,
           dialogs: this.dialogs,
-          mock: this.mock
+          mock: this.mock,
         });
         this.setRoutes();
         this.view.initReviewDialog();
         this.view.initFilterDialog();
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
@@ -68,37 +69,37 @@ export class FriendlyEats {
   setRoutes() {
     this.router
       .on({
-        "/": () => {
+        '/': () => {
           this.view.updateQuery(this.filters);
-        }
+        },
       })
       .on({
-        "/setup": () => {
+        '/setup': () => {
           this.view.viewSetup();
-        }
+        },
       })
       .on({
-        "/restaurants/*": () => {
+        '/restaurants/*': () => {
           let path = this.getCleanPath(document.location.pathname);
-          let id = path.split("/")[2];
+          let id = path.split('/')[2];
           this.view.viewRestaurant(id);
-        }
+        },
       })
       .resolve();
 
-    this.db.checkForEmpty(snapshot => {
+    this.db.checkForEmpty((snapshot) => {
       if (snapshot.empty) {
-        this.router.navigate("/setup");
+        this.router.navigate('/setup');
       }
     });
   }
 
   getCleanPath(dirtyPath) {
-    if (dirtyPath.startsWith("/index.html")) {
+    if (dirtyPath.startsWith('/index.html')) {
       return dirtyPath
-        .split("/")
+        .split('/')
         .slice(1)
-        .join("/");
+        .join('/');
     } else {
       return dirtyPath;
     }
@@ -114,102 +115,92 @@ export class FriendlyEats {
 
   get mockData() {
     return {
-      words: [
-        "Bar",
-        "Fire",
-        "Grill",
-        "Drive Thru",
-        "Place",
-        "Best",
-        "Spot",
-        "Prime",
-        "Eatin'"
-      ],
+      words: ['Bar', 'Fire', 'Grill', 'Drive Thru', 'Place', 'Best', 'Spot', 'Prime', "Eatin'"],
       cities: [
-        "Albuquerque",
-        "Arlington",
-        "Atlanta",
-        "Austin",
-        "Baltimore",
-        "Boston",
-        "Charlotte",
-        "Chicago",
-        "Cleveland",
-        "Colorado Springs",
-        "Columbus",
-        "Dallas",
-        "Denver",
-        "Detroit",
-        "El Paso",
-        "Fort Worth",
-        "Fresno",
-        "Houston",
-        "Indianapolis",
-        "Jacksonville",
-        "Kansas City",
-        "Las Vegas",
-        "Long Island",
-        "Los Angeles",
-        "Louisville",
-        "Memphis",
-        "Mesa",
-        "Miami",
-        "Milwaukee",
-        "Nashville",
-        "New York",
-        "Oakland",
-        "Oklahoma",
-        "Omaha",
-        "Philadelphia",
-        "Phoenix",
-        "Portland",
-        "Raleigh",
-        "Sacramento",
-        "San Antonio",
-        "San Diego",
-        "San Francisco",
-        "San Jose",
-        "Tucson",
-        "Tulsa",
-        "Virginia Beach",
-        "Washington"
+        'Albuquerque',
+        'Arlington',
+        'Atlanta',
+        'Austin',
+        'Baltimore',
+        'Boston',
+        'Charlotte',
+        'Chicago',
+        'Cleveland',
+        'Colorado Springs',
+        'Columbus',
+        'Dallas',
+        'Denver',
+        'Detroit',
+        'El Paso',
+        'Fort Worth',
+        'Fresno',
+        'Houston',
+        'Indianapolis',
+        'Jacksonville',
+        'Kansas City',
+        'Las Vegas',
+        'Long Island',
+        'Los Angeles',
+        'Louisville',
+        'Memphis',
+        'Mesa',
+        'Miami',
+        'Milwaukee',
+        'Nashville',
+        'New York',
+        'Oakland',
+        'Oklahoma',
+        'Omaha',
+        'Philadelphia',
+        'Phoenix',
+        'Portland',
+        'Raleigh',
+        'Sacramento',
+        'San Antonio',
+        'San Diego',
+        'San Francisco',
+        'San Jose',
+        'Tucson',
+        'Tulsa',
+        'Virginia Beach',
+        'Washington',
       ],
       categories: [
-        "Brunch",
-        "Burgers",
-        "Coffee",
-        "Deli",
-        "Dim Sum",
-        "Indian",
-        "Italian",
-        "Mediterranean",
-        "Mexican",
-        "Pizza",
-        "Ramen",
-        "Sushi"
+        'Brunch',
+        'Burgers',
+        'Coffee',
+        'Deli',
+        'Dim Sum',
+        'Indian',
+        'Italian',
+        'Mediterranean',
+        'Mexican',
+        'Pizza',
+        'Ramen',
+        'Sushi',
       ],
       ratings: [
         {
           rating: 1,
-          text: "Would never eat here again!"
+          text: 'Would never eat here again!',
         },
         {
           rating: 2,
-          text: "Not my cup of tea."
+          text: 'Not my cup of tea.',
         },
         {
           rating: 3,
-          text: "Exactly okay :/"
+          text: 'Exactly okay :/',
         },
         {
           rating: 4,
-          text: "Actually pretty good, would recommend!"
+          text: 'Actually pretty good, would recommend!',
         },
         {
           rating: 5,
-          text: "This is my favorite place. Literally."
-        }
-      ]
+          text: 'This is my favorite place. Literally.',
+        },
+      ],
     };
   }
 }

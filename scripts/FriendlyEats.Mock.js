@@ -30,20 +30,14 @@ export class Mock {
     for (let i = 0; i < 20; i++) {
       let name =
         this.friendlyEats.getRandomItem(this.friendlyEats.mockData.words) +
-        " " +
+        ' ' +
         this.friendlyEats.getRandomItem(this.friendlyEats.mockData.words);
-      let category = this.friendlyEats.getRandomItem(
-        this.friendlyEats.mockData.categories
-      );
-      let city = this.friendlyEats.getRandomItem(
-        this.friendlyEats.mockData.cities
-      );
+      let category = this.friendlyEats.getRandomItem(this.friendlyEats.mockData.categories);
+      let city = this.friendlyEats.getRandomItem(this.friendlyEats.mockData.cities);
       let price = Math.floor(Math.random() * 4) + 1;
       let photoID = Math.floor(Math.random() * 22) + 1;
       let photo =
-        "https://storage.googleapis.com/firestorequickstarts.appspot.com/food_" +
-        photoID +
-        ".png";
+        'https://storage.googleapis.com/firestorequickstarts.appspot.com/food_' + photoID + '.png';
       let numRatings = 0;
       let avgRating = 0;
 
@@ -54,11 +48,11 @@ export class Mock {
         city: city,
         numRatings: numRatings,
         avgRating: avgRating,
-        photo: photo
+        photo: photo,
       });
 
       if (!promise) {
-        alert("addRestaurant() is not implemented yet!");
+        alert('addRestaurant() is not implemented yet!');
         return Promise.reject();
       } else {
         promises.push(promise);
@@ -78,7 +72,7 @@ export class Mock {
         parseInt(this.friendlyEats.mockData.ratings.length * Math.random())
       ];
       let user = this.auth.getUser();
-      rating.userName = "Bot (Web)";
+      rating.userName = 'Bot (Web)';
       // For production data, use Firestore's serverTimestamp() function!
       rating.timestamp = new Date();
       rating.userId = user.uid;

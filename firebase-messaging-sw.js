@@ -17,14 +17,15 @@ importScripts('https://www.gstatic.com/firebasejs/9.7.0/firebase-app-compat.js')
 importScripts('https://www.gstatic.com/firebasejs/9.7.0/firebase-messaging-compat.js');
 
 firebase.initializeApp({
-  apiKey: "AIzaSyC4pjYxIa_Mz_ceS5ppLc9dmI9ycqHe_ik",
-  authDomain: "friendly-eats-5c2b4.firebaseapp.com",
-  databaseURL: "https://friendly-eats-5c2b4.firebaseio.com",
-  projectId: "friendly-eats-5c2b4",
-  storageBucket: "friendly-eats-5c2b4.appspot.com",
-  messagingSenderId: "373507430883",
-  appId: "1:373507430883:web:5d3f195256b717739a28d6",
-  measurementId: "G-M86R7EN02K"
+  apiKey: 'AIzaSyBYpPYXYcsIk1nXgKF2enHU_yyrcSs12MY',
+  authDomain: 'friendly-eats-aaa7f.firebaseapp.com',
+  projectId: 'friendly-eats-aaa7f',
+  storageBucket: 'friendly-eats-aaa7f.appspot.com',
+  messagingSenderId: '737449910539',
+  appId: '1:737449910539:web:7b41e4904f9ae6da86820e',
+
+  // databaseURL: 'https://friendly-eats-5c2b4.firebaseio.com',
+  // measurementId: 'G-M86R7EN02K',
 });
 
 firebase.messaging();
